@@ -3,11 +3,13 @@ view: biblioteca_datos {
     ;;
 
   dimension: anio_registro_usuario_sistema {
+    label: "Año de registro del usuario que reporta"
     type: number
     sql: ${TABLE}.Anio_registro_usuario_sistema ;;
   }
 
   dimension: biblioteca_consulta {
+    label: "Biblioteca reporte"
     type: string
     sql: ${TABLE}.Biblioteca_consulta ;;
   }
@@ -20,11 +22,6 @@ view: biblioteca_datos {
   dimension: codigo_biblioteca {
     type: string
     sql: ${TABLE}.Codigo_biblioteca ;;
-  }
-
-  dimension: codigo_biblioteca_1 {
-    type: string
-    sql: ${TABLE}.Codigo_biblioteca_1 ;;
   }
 
   dimension: codigo_de_preferencia_de_aviso {
@@ -57,10 +54,6 @@ view: biblioteca_datos {
     sql: ${TABLE}.Fecha ;;
   }
 
-  dimension: georeferencia {
-    type: string
-    sql: ${TABLE}.Georeferencia ;;
-  }
 
   dimension: item {
     type: number
@@ -83,6 +76,7 @@ view: biblioteca_datos {
   }
 
   dimension: nombre {
+    label: "Nombre biblioteca externa"
     type: string
     sql: ${TABLE}.Nombre ;;
   }
@@ -93,6 +87,7 @@ view: biblioteca_datos {
   }
 
   dimension: reservas_totales {
+    label: "Cantidad de reservas"
     type: number
     sql: ${TABLE}.Reservas_totales ;;
   }
@@ -105,5 +100,15 @@ view: biblioteca_datos {
   measure: count {
     type: count
     drill_fields: []
+  }
+
+  measure: consultas {
+    type: sum
+    sql: sum(${cantidad_consultas}) ;;
+  }
+
+  measure: reservas {
+    type: sum
+    sql: sum(${reservas_totales}) ;;
   }
 }
