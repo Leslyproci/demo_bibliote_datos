@@ -117,4 +117,9 @@ view: biblioteca_datos {
     sql_latitude:${latitud} ;;
     sql_longitude:${longitud} ;;
   }
+
+  measure: count_universidades {
+    type: count_distinct
+    sql: ${nombre} ;;
+  }
 }
