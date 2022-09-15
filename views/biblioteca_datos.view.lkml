@@ -111,4 +111,10 @@ view: biblioteca_datos {
     type: sum
     sql: sum(${reservas_totales}) ;;
   }
+
+  dimension: ubicacion {
+    type: location
+    sql_latitude:${latitud} ;;
+    sql_longitude:${longitud} ;;
+  }
 }
