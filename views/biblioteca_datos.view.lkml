@@ -104,12 +104,12 @@ view: biblioteca_datos {
 
   measure: consultas {
     type: sum
-    sql: sum(${cantidad_consultas}) ;;
+    sql: ${cantidad_consultas} ;;
   }
 
   measure: reservas {
     type: sum
-    sql: sum(${reservas_totales}) ;;
+    sql: ${reservas_totales} ;;
   }
 
   dimension: ubicacion {
