@@ -119,12 +119,12 @@ view: biblioteca_datos {
   }
 
   measure: count_universidades {
-    type: count_distinct
-    sql: ${nombre} ;;
+    type: number
+    sql: COUNT_DISTINC(${nombre}) ;;
   }
 
   measure: maximo_reservas {
-    type: max
-    sql: ${reservas_totales} ;;
+    type: number
+    sql: MAX(${reservas_totales}) ;;
   }
 }
