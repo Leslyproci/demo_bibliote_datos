@@ -122,4 +122,9 @@ view: biblioteca_datos {
     type: count_distinct
     sql: ${nombre} ;;
   }
+
+  measure: maximo_reservas {
+    type: max
+    sql: ${reservas_totales} ;;
+  }
 }
