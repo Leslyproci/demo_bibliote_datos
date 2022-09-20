@@ -80,7 +80,7 @@ view: biblioteca_datos {
     type: string
     sql:
 
-    CASE WHEN {{_user_attributes["nombre_biblioteca_externa"]}} = "BIBLIOTECA PUBLICA LEON DE GREIFF"
+    CASE WHEN {{_user_attributes["nombre_biblioteca_externa"]}} = "BIBLIOTECA MUNICIPAL DE AGUA CLARA"
 
                     THEN ${TABLE}.Nombre
 
@@ -94,7 +94,7 @@ view: biblioteca_datos {
 
     html:
 
-    {% if _user_attributes["nombre_biblioteca_externa"] == "BIBLIOTECA PUBLICA LEON DE GREIFF" %}
+    {% if _user_attributes["nombre_biblioteca_externa"] == "BIBLIOTECA MUNICIPAL DE AGUA CLARA" %}
 
                           {{ rendered_value }}
 
