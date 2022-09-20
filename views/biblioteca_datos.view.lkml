@@ -83,7 +83,7 @@ view: biblioteca_datos {
 
     CASE WHEN {{_user_attributes["nombre_biblioteca_externa"]}} = 1
 
-    THEN ${TABLE}.Codigo_de_tipo_de_usuario
+    THEN ${TABLE}.nombre
 
     ELSE
 
