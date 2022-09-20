@@ -54,12 +54,6 @@ view: biblioteca_datos {
     sql: ${TABLE}.Fecha ;;
   }
 
-
-  dimension: item {
-    type: number
-    sql: ${TABLE}.Item ;;
-  }
-
   dimension: latitud {
     type: number
     sql: ${TABLE}.Latitud ;;
@@ -75,34 +69,55 @@ view: biblioteca_datos {
     sql: ${TABLE}.Medio_de_preferenica_de_aviso ;;
   }
 
+  dimension: item {
+
+
+    primary_key: yes
+
+    hidden: yes
+
+    type: number
+
+    sql: ${TABLE}.Item ;;
+
+  }
+
+
+
   dimension: nombre {
+
     label: "Nombre biblioteca externa"
+
     type: string
+
+
+
     sql:
 
-    CASE WHEN {{_user_attributes["correo"]}} = "BIBLIOTECA"
+    CASE WHEN {{ _user_attributes["correo"] }} = 1
 
-    THEN ${TABLE}.Nombre
+          THEN ${TABLE}.Nombre::varchar
 
-    ELSE
+      ELSE
 
-    -1
+      MD5(${TABLE}.Item)
 
-    END ;;
+      END ;;
 
 
 
     html:
 
-    {% if _user_attributes["correo"] == "BIBLIOTECA" %}
+    {% if _user_attributes["correo"] == 1 %}
 
-          {{ rendered_value }}
+          {{ value }}
 
       {% else %}
 
       [Insufficient Permissions]
 
       {% endif %}  ;;
+
   }
 
   dimension: proporciono_direccion_de_correo {
