@@ -78,34 +78,8 @@ view: biblioteca_datos {
   dimension: nombre {
     label: "Nombre biblioteca externa"
     type: string
-    sql:
-
-    CASE WHEN {{_user_attributes["nombre_biblioteca_externa"]}} = "BIBLIOTECA MUNICIPAL DE AGUA CLARA"
-
-                    THEN ${TABLE}.Nombre
-
-      ELSE
-
-      -1
-
-      END ;;
-
-
-
-    html:
-
-    {% if _user_attributes["nombre_biblioteca_externa"] == "BIBLIOTECA MUNICIPAL DE AGUA CLARA" %}
-
-                          {{ rendered_value }}
-
-      {% else %}
-
-      Sin permiso
-
-      {% endif %}  ;;
-
+    sql: ${TABLE}.Nombre ;;
   }
-
 
   dimension: proporciono_direccion_de_correo {
     type: string
