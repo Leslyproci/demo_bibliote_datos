@@ -83,32 +83,7 @@ view: biblioteca_datos {
 
   dimension: proporciono_direccion_de_correo {
     type: string
-    sql:
-
-    CASE WHEN {{_user_attributes["correo"]}} = "no"
-
-                    THEN ${TABLE}.Proporciono_direccion_de_correo
-
-      ELSE
-
-      -1
-
-      END ;;
-
-
-
-    html:
-
-    {% if _user_attributes["correo"] == "no" %}
-
-                          {{ rendered_value }}
-
-      {% else %}
-
-      Sin permiso
-
-      {% endif %}  ;;
-
+    sql: ${TABLE}.Proporciono_direccion_de_correo ;;
   }
 
 
