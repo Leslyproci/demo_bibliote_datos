@@ -70,54 +70,13 @@ view: biblioteca_datos {
   }
 
   dimension: item {
-
-
-    primary_key: yes
-
-    hidden: yes
-
     type: number
-
     sql: ${TABLE}.Item ;;
-
   }
-
-
-
   dimension: nombre {
-
     label: "Nombre biblioteca externa"
-
     type: string
-
-
-
-    sql:
-
-    CASE WHEN {{ _user_attributes["correo"] }} = 1
-
-          THEN ${item}::varchar
-
-      ELSE
-
-      MD5(${item})
-
-      END ;;
-
-
-
-    html:
-
-    {% if _user_attributes["correo"] == 1 %}
-
-          {{ value }}
-
-      {% else %}
-
-      [Insufficient Permissions]
-
-      {% endif %}  ;;
-
+    sql: ${TABLE}.Nombre ;;
   }
 
   dimension: proporciono_direccion_de_correo {
