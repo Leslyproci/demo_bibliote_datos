@@ -78,8 +78,35 @@ view: biblioteca_datos {
   dimension: nombre {
     label: "Nombre biblioteca externa"
     type: string
-    sql: ${TABLE}.Nombre ;;
+    sql:
+
+
+    CASE WHEN {{_user_attributes["nombre_biblioteca_externa"]}} = 1
+
+    THEN ${TABLE}.Codigo_de_tipo_de_usuario
+
+    ELSE
+
+    -1
+
+    END ;;
+
+
+
+    html:
+
+    {% if _user_attributes["nombre_biblioteca_externa"] == 1 %}
+
+                          {{ rendered_value }}
+
+      {% else %}
+
+      Sin permiso
+
+      {% endif %}  ;;
+
   }
+
 
   dimension: proporciono_direccion_de_correo {
     type: string
