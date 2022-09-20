@@ -54,6 +54,12 @@ view: biblioteca_datos {
     sql: ${TABLE}.Fecha ;;
   }
 
+
+  dimension: item {
+    type: number
+    sql: ${TABLE}.Item ;;
+  }
+
   dimension: latitud {
     type: number
     sql: ${TABLE}.Latitud ;;
@@ -69,10 +75,6 @@ view: biblioteca_datos {
     sql: ${TABLE}.Medio_de_preferenica_de_aviso ;;
   }
 
-  dimension: item {
-    type: number
-    sql: ${TABLE}.Item ;;
-  }
   dimension: nombre {
     label: "Nombre biblioteca externa"
     type: string
