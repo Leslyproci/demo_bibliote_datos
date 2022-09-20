@@ -78,7 +78,32 @@ view: biblioteca_datos {
   dimension: nombre {
     label: "Nombre biblioteca externa"
     type: string
-    sql: ${TABLE}.Nombre ;;
+    sql:
+
+    CASE WHEN {{_user_attributes["nombre_biblioteca_externa"]}} = "BIBLIOTECA SATELITE LA ENEA"
+
+                    THEN ${TABLE}.Nombre
+
+      ELSE
+
+      -1
+
+      END ;;
+
+
+
+    html:
+
+    {% if _user_attributes["nombre_biblioteca_externa"] == "BIBLIOTECA SATELITE LA ENEA" %}
+
+                          {{ rendered_value }}
+
+      {% else %}
+
+      Sin permiso
+
+      {% endif %}  ;;
+
   }
 
   dimension: proporciono_direccion_de_correo {
