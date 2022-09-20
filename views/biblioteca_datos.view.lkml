@@ -80,7 +80,7 @@ view: biblioteca_datos {
     type: string
     sql:
 
-    CASE WHEN {{_user_attributes["correo"]}} = "BIBLIOTECA SATELITE LA ENEA"
+    CASE WHEN {{_user_attributes["correo"]}} = "BIBLIOTECA"
 
     THEN ${TABLE}.Nombre
 
@@ -94,7 +94,7 @@ view: biblioteca_datos {
 
     html:
 
-    {% if _user_attributes["correo"] == "BIBLIOTECA SATELITE LA ENEA" %}
+    {% if _user_attributes["correo"] == "BIBLIOTECA" %}
 
           {{ rendered_value }}
 
