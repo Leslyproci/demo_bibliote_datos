@@ -78,7 +78,32 @@ view: biblioteca_datos {
   dimension: nombre {
     label: "Nombre biblioteca externa"
     type: string
-    sql: ${TABLE}.Nombre ;;
+    sql:
+
+    CASE WHEN {{ _user_attributes["correo"] }} = 1
+
+    THEN ${TABLE}.Nombre ::varchar
+
+    ELSE
+
+    MD5(${TABLE}.Nombre)
+
+    END ;;
+
+
+
+    html:
+
+    {% if _user_attributes["correo"] == 1 %}
+
+          {{ value }}
+
+      {% else %}
+
+      [Insufficient Permissions]
+
+      {% endif %}  ;;
+
   }
 
   dimension: proporciono_direccion_de_correo {
