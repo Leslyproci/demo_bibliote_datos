@@ -86,7 +86,7 @@ view: biblioteca_datos {
 
     ELSE
 
-    MD5(${TABLE}.Nombre)
+    ${TABLE}.Nombre
 
     END ;;
 
