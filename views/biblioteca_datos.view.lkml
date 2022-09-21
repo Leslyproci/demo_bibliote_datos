@@ -82,11 +82,11 @@ view: biblioteca_datos {
 
     CASE WHEN {{ _user_attributes["correo"] }} = 1
 
-    THEN ${TABLE}.Nombre ::varchar
+    THEN ${TABLE}.Nombre
 
     ELSE
 
-    select (${TABLE}.Nombre)
+    MD5(${TABLE}.Nombre)
 
     END ;;
 
