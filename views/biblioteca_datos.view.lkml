@@ -100,7 +100,7 @@ view: biblioteca_datos {
 
       {% else %}
 
-      [Insufficient Permissions]
+      [Sin permiso]
 
       {% endif %}  ;;
 
