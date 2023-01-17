@@ -144,10 +144,10 @@ view: biblioteca_datos {
     sql_longitude:${longitud} ;;
   }
 
-  measure: count_universidades {
-    type: number
-    sql: COUNT_DISTINC(${nombre}) ;;
-  }
+  #measure: count_universidades {
+   # type: number
+    #sql: COUNT_DISTINC(${nombre}) ;;
+  #}
 
   measure: maximo_reservas {
     type: number
