@@ -46,7 +46,50 @@ view: datos_biblioteca {
     datatype: date
     sql: ${TABLE}.Fecha ;;
   }
+  dimension: wtd_only {
+    group_label: "To-Date Filters"
+    label: "WTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DOW FROM ${fecha_raw}) < EXTRACT(DOW FROM GETDATE())
+                    OR
+                (EXTRACT(DOW FROM ${fecha_raw}) = EXTRACT(DOW FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${fecha_raw}) < EXTRACT(HOUR FROM GETDATE()))
+                    OR
+                (EXTRACT(DOW FROM ${fecha_raw}) = EXTRACT(DOW FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${fecha_raw}) <= EXTRACT(HOUR FROM GETDATE()) AND
+                EXTRACT(MINUTE FROM ${fecha_raw}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+  }
 
+  dimension: mtd_only {
+    group_label: "To-Date Filters"
+    label: "MTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DAY FROM ${fecha_raw}) < EXTRACT(DAY FROM GETDATE())
+                    OR
+                (EXTRACT(DAY FROM ${fecha_raw}) = EXTRACT(DAY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${fecha_raw}) < EXTRACT(HOUR FROM GETDATE()))
+                    OR
+                (EXTRACT(DAY FROM ${fecha_raw}) = EXTRACT(DAY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${fecha_raw}) <= EXTRACT(HOUR FROM GETDATE()) AND
+                EXTRACT(MINUTE FROM ${fecha_raw}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+  }
+
+  dimension: ytd_only {
+    group_label: "To-Date Filters"
+    label: "YTD"
+    view_label: "_PoP"
+    type: yesno
+    sql:  (EXTRACT(DOY FROM ${fecha_raw}) < EXTRACT(DOY FROM GETDATE())
+                    OR
+                (EXTRACT(DOY FROM ${fecha_raw}) = EXTRACT(DOY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${fecha_raw}) < EXTRACT(HOUR FROM GETDATE()))
+                    OR
+                (EXTRACT(DOY FROM ${fecha_raw}) = EXTRACT(DOY FROM GETDATE()) AND
+                EXTRACT(HOUR FROM ${fecha_raw}) <= EXTRACT(HOUR FROM GETDATE()) AND
+                EXTRACT(MINUTE FROM ${fecha_raw}) < EXTRACT(MINUTE FROM GETDATE())))  ;;
+  }
   dimension: item {
     type: number
     sql: ${TABLE}.Item ;;
