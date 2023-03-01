@@ -16,3 +16,4 @@ explore: biblioteca_datos {
     user_attribute: universidad
   }
 }
+explore: datos_biblioteca {}
