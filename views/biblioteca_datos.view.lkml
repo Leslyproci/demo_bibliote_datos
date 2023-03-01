@@ -39,6 +39,11 @@ view: biblioteca_datos {
     sql: ${TABLE}.Departamento ;;
   }
 
+  dimension: departamento_link {
+    type: string
+    sql: ${TABLE}.Departamento ;;
+  }
+
   dimension_group: fecha {
     type: time
     timeframes: [
@@ -131,6 +136,10 @@ view: biblioteca_datos {
   measure: consultas {
     type: sum
     sql: ${cantidad_consultas} ;;
+    link: {
+      label: "Link Tablero Prueba"
+      url: "https://politecnicograncolombiano.cloud.looker.com/looks/9?toggle=det"
+    }
   }
 
   measure: reservas {
