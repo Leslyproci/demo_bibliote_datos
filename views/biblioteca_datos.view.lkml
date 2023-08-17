@@ -9,6 +9,7 @@ view: biblioteca_datos {
   }
 
   dimension: biblioteca_consulta {
+    tags: ["sfdc_contact_id"]
     label: "Biblioteca reporte"
     type: string
     sql: ${TABLE}.Biblioteca_consulta ;;
@@ -20,6 +21,7 @@ view: biblioteca_datos {
   }
 
   dimension: codigo_biblioteca {
+    tags: ["sfdc_lead_id"]
     type: string
     sql: ${TABLE}.Codigo_biblioteca ;;
   }
