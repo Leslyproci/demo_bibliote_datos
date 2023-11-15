@@ -119,4 +119,9 @@ view: datos_biblioteca {
     type: count
     drill_fields: []
   }
+###### se crea la constante
+  dimension: cliente {
+    type: string
+    sql: constant("copalcol") ;;
+  }
 }
