@@ -122,6 +122,7 @@ view: datos_biblioteca {
 ###### se crea la constante
   dimension: cliente {
     type: string
-    sql: constant("copalcol") ;;
+    sql: "copalcol";;
   }
+
 }
