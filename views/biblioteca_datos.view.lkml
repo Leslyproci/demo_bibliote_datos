@@ -1,5 +1,5 @@
 view: biblioteca_datos {
-  sql_table_name: `analitica-demos.Demo.biblioteca_datos`
+  sql_table_name: `@{GCP_PROJECT}.Demo.biblioteca_datos`
     ;;
 
   dimension: anio_registro_usuario_sistema {
