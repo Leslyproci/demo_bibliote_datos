@@ -22,6 +22,11 @@ view: datos_biblioteca {
     sql: ${TABLE}.Codigo_biblioteca ;;
   }
 
+  dimension: codigo_biblioteca_virtual {
+    type: string
+    sql: CASE WHEN ${biblioteca_consulta} = 'Biblioteca virtual' THEN ${TABLE}.Codigo_biblioteca ELSE NULL END ;;
+  }
+
   dimension: codigo_de_preferencia_de_aviso {
     type: string
     sql: ${TABLE}.Codigo_de_preferencia_de_aviso ;;
