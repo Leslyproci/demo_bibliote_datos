@@ -16,4 +16,9 @@ explore: biblioteca_datos {
     user_attribute: universidad
   }
 }
-explore: datos_biblioteca {}
+explore: datos_biblioteca {
+ # always_filter: {
+  #  filters: [datos_biblioteca.biblioteca_consulta: "Biblioteca virtual"
+   #   , datos_biblioteca.biblioteca_consulta: "Biblioteca principal"]
+  #}
+}

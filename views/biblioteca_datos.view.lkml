@@ -155,4 +155,10 @@ view: biblioteca_datos {
     type: number
     sql: MAX(${reservas_totales}) ;;
   }
+
+  measure: count_2023 {
+    type: count
+    drill_fields: []
+    filters: [anio_registro_usuario_sistema: "2003"]
+  }
 }
