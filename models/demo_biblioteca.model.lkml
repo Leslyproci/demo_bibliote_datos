@@ -15,5 +15,9 @@ explore: biblioteca_datos {
    field: universidad
     user_attribute: universidad
   }
+  #access_filter: {
+  #  field: cantidad_consultas
+  #  user_attribute: correo
+  #}
 }
 explore: datos_biblioteca {}
